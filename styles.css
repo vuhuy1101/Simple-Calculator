@@ -1,0 +1,58 @@
+#outer{
+	margin:0 auto;
+	position:relative;
+	height:350px;
+	width:240px;
+	background-color:green;
+	border-radius:8px;
+}
+
+#screen{
+	border-top-left-radius:8px;
+	border-top-right-radius:8px;
+}
+
+#screen a{
+	color:white;
+	float:right;
+	font-size:3em;
+	top:10px;
+	position:relative;
+	margin-right:10px;
+}
+
+#screen{
+	height:100px;
+	width:240px;
+	position:static;
+	background-color:black;
+	
+}
+
+button{
+	position:static;
+	float:left;
+	height:50px;
+	width:60px;
+	font-size:1.2em;
+	border:0.5px solid grey;
+	background-color:#e0e0e0;
+	margin:0px 0px 0px 0px;
+	padding:0px;
+}
+
+.color{
+	background-color:#f5923e;
+	color:white;
+}
+
+#num0{
+	width:120px;
+	border-bottom-left-radius:8px;
+}
+
+#equal{
+	border-bottom-right-radius:8px;
+}
+
+

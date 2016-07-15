@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Simple Calculator</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<div id="outer">
+			<div id="screen">
+				<br/><br/>
+				<a id="onScreen">0</a>
+			</div>
+			<div class="numpad">
+				<button id="AC" onclick="reset()">AC</button>
+				<button id="negative" onclick="negative()">+/-</button>
+				<button id="mod" onclick="mod()">%</button>
+				<button class="color" id="divide" onclick="div()">/</button>
+				<button div ="num" id="num7" onclick="input('num7')">7</button>
+				<button div="num" id="num8" onclick="input('num8')">8</button>
+				<button div="num" id="num9" onclick="input('num9')">9</button>
+				<button class="color" id="multiple" onclick="mul()">X</button>
+				<button div="num" id="num4" onclick="input('num4')">4</button>
+				<button div="num" id="num5" onclick="input('num5')">5</button>
+				<button div="num" id="num6" onclick="input('num6')">6</button>
+				<button class="color" id="substract" onclick="sub()">-</button>
+				<button div="num" id="num1" onclick="input('num1')">1</button>
+				<button div="num" id="num2" onclick="input('num2')">2</button>
+				<button div="num" id="num3" onclick="input('num3')">3</button>
+				<button class="color" id="add" onclick="add()">+</button>
+				<button id="num0">0</button>
+				<button id="period" onclick="input('period')">.</button>
+				<button class="color" id="equal" onclick="equal()">=</button>
+					
+				
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			globalNum = "";
+			firstNum = 0;
+			secondNum = 0;
+			action = "";
+
+			function input(id){
+			 var onscreen = document.getElementById("onScreen");
+				var temp = document.getElementById(id);
+				if(onscreen.textContent == "0" && id != "."){
+					onscreen.textContent = temp.textContent;
+				}
+				else if(onscreen.textContent.length < 9)
+				onscreen.textContent += temp.textContent;
+				else 
+					onscreen.textContent = onscreen.textContent.substr(1,onscreen.textContent.length) + temp.textContent;
+			if(action != "")
+				secondNum = onscreen.textContent;
+			 else
+				 firstNum = onscreen.textContent;
+			}
+
+			function reset(){
+				globalNum = "0";
+				document.getElementById("onScreen").textContent = globalNum;
+			 action = "";
+			}
+
+			function negative(){
+				var onscreen = document.getElementById("onScreen");
+				if(onscreen.textContent[0] != "-")
+					onscreen.textContent = "-" + onscreen.textContent;
+				else
+					onscreen.textContent = onscreen.textContent.substr(1,onscreen.textContent.length);
+			}
+
+			function add(){
+				action = "add";
+				document.getElementById("onScreen").textContent = 0;
+			}
+
+			function sub(){
+				action = "sub";
+				document.getElementById("onScreen").textContent = 0;
+			}
+
+			function mul(){
+				action = "mul";
+				document.getElementById("onScreen").textContent = 0;
+			}
+
+			function div(){
+				action = "div";
+				document.getElementById("onScreen").textContent = 0;
+			}
+
+			function mod(){
+				action = "mod";
+				document.getElementById("onScreen").textContent = 0;
+			}
+
+			function decimal(){
+				
+			}
+
+			function equal(){ 
+				var num1 = parseFloat(firstNum);
+				var num2 = parseFloat(secondNum)
+			;
+				switch(action){
+				case "add": var result = num1 + num2;             
+							document.getElementById("onScreen").textContent = result;
+							break;
+				case "sub": var result = num1 - num2;
+				            document.getElementById("onScreen").textContent = result;
+							break;
+				case "mul": var result = num1 * num2;
+				            document.getElementById("onScreen").textContent = result;
+							break;
+				case "div": var result = num1 / num2; 
+				            document.getElementById("onScreen").textContent = result;
+							break;
+				case "mod": var result = num1 % num2; 
+				            document.getElementById("onScreen").textContent = result;
+							break;
+				default: document.getElementById("onScreen").textContent = parseFloat(firstNum);   
+				}  
+			}
+		</script>
+	</body>
+</html>
